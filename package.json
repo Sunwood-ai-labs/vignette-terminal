@@ -1,0 +1,35 @@
+{
+  "name": "vignette-terminal",
+  "private": false,
+  "version": "0.1.0",
+  "description": "A Tauri terminal with cinematic video backgrounds, random playback, and smooth crossfades.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build --emptyOutDir",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "tauri": "tauri"
+  },
+  "keywords": [
+    "tauri",
+    "terminal",
+    "xterm",
+    "desktop-app",
+    "video-background"
+  ],
+  "author": "Sunwood AI Labs",
+  "license": "MIT",
+  "devDependencies": {
+    "@tauri-apps/cli": "^2",
+    "vite": "^8.0.14",
+    "vitepress": "^1.6.4"
+  },
+  "dependencies": {
+    "@tauri-apps/plugin-dialog": "^2.7.1",
+    "@xterm/addon-fit": "^0.11.0",
+    "@xterm/addon-web-links": "^0.12.0",
+    "@xterm/xterm": "^6.0.0"
+  }
+}
