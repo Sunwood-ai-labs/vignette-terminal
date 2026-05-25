@@ -5,7 +5,12 @@ export default defineConfig({
   description: "A Tauri terminal with cinematic video backgrounds.",
   base: "/vignette-terminal/",
   cleanUrls: true,
-  head: [["link", { rel: "icon", href: "/vignette-terminal/icon.png" }]],
+  head: [
+    ["link", { rel: "icon", href: "/vignette-terminal/favicon.ico", sizes: "any" }],
+    ["link", { rel: "icon", type: "image/png", sizes: "32x32", href: "/vignette-terminal/favicon-32x32.png" }],
+    ["link", { rel: "icon", type: "image/png", sizes: "16x16", href: "/vignette-terminal/favicon-16x16.png" }],
+    ["link", { rel: "apple-touch-icon", sizes: "180x180", href: "/vignette-terminal/apple-touch-icon.png" }],
+  ],
   locales: {
     root: {
       label: "English",
