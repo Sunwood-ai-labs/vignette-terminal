@@ -33,6 +33,9 @@ let previousVideoIndex = -1;
 let activeVideo = null;
 let standbyVideo = null;
 let fadeTimer = null;
+let recoveryTimer = null;
+let mediaFailureCount = 0;
+const maxMediaFailureCount = 6;
 
 const terminal = new Terminal({
   allowTransparency: true,
@@ -127,21 +130,39 @@ function createBackgroundVideo(filePath, isActive = false) {
   video.preload = "auto";
   video.loop = false;
   video.addEventListener("error", () => {
-    terminal.write(`\r\n\x1b[31mbackground video failed: ${filePath}\x1b[0m\r\n`);
+    if (video !== activeVideo && video !== standbyVideo) return;
+
+    console.warn("background video failed", filePath, video.error);
+    video.remove();
+
+    if (video === standbyVideo) {
+      standbyVideo = null;
+    }
+
+    if (video === activeVideo) {
+      activeVideo = null;
+    }
+
+    if (mediaFailureCount >= maxMediaFailureCount) return;
+    mediaFailureCount += 1;
+    clearTimeout(recoveryTimer);
+    recoveryTimer = setTimeout(() => queueNextRandomVideo(), 350);
   });
   video.addEventListener("timeupdate", () => {
-    if (video !== activeVideo || fadeTimer) return;
+    if (video !== activeVideo || fadeTimer || standbyVideo) return;
     if (Number.isFinite(video.duration) && video.duration > 0 && video.duration - video.currentTime < 1.25) {
       queueNextRandomVideo();
     }
   });
   video.addEventListener("ended", () => {
-    if (video === activeVideo) queueNextRandomVideo();
+    if (video === activeVideo && !standbyVideo && !fadeTimer) queueNextRandomVideo();
   });
   return video;
 }
 
 function queueNextRandomVideo() {
+  if (standbyVideo || fadeTimer) return;
+
   const filePath = randomVideoPath();
   if (!filePath) return;
 
@@ -151,6 +172,7 @@ function queueNextRandomVideo() {
 
   const startFade = () => {
     if (standbyVideo !== nextVideo) return;
+    mediaFailureCount = 0;
     nextVideo.play().catch(() => {});
     nextVideo.classList.add("is-active");
     activeVideo?.classList.remove("is-active");
@@ -172,7 +194,10 @@ function startRandomPlaylist(paths = defaultPlaylist) {
   playlist = paths.length > 0 ? [...paths] : [...defaultPlaylist];
   previousVideoIndex = -1;
   clearTimeout(fadeTimer);
+  clearTimeout(recoveryTimer);
   fadeTimer = null;
+  recoveryTimer = null;
+  mediaFailureCount = 0;
   const firstPath = randomVideoPath();
   if (!firstPath) return;
 
@@ -229,6 +254,9 @@ pickMediaButton.addEventListener("click", async () => {
   }
 
   clearTimeout(fadeTimer);
+  clearTimeout(recoveryTimer);
+  recoveryTimer = null;
+  mediaFailureCount = 0;
   activeVideo = isVideo ? element : null;
   standbyVideo = null;
   mediaLayer.replaceChildren(element);
