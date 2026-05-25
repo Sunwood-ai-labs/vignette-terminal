@@ -55,6 +55,21 @@ src-tauri/target/release/
 src-tauri/target/release/bundle/
 ```
 
+## 📦 リリース
+
+GitHub Actions で Windows、Linux、macOS 向けの配布物を生成します。バージョンタグを push すると GitHub Release が作成され、各 platform の bundle が添付されます。
+
+```powershell
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+生成対象:
+
+- Windows: `.exe` NSIS インストーラーと `.msi`
+- Linux: `.AppImage`、`.deb`、`.rpm`
+- macOS: `.dmg` と、Tauri が生成する場合は app bundle archive
+
 ## 🎬 背景メディア
 
 既定の背景動画は以下にあります。

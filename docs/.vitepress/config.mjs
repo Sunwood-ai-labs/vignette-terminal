@@ -21,6 +21,7 @@ export default defineConfig({
             items: [
               { text: "Getting Started", link: "/guide/getting-started" },
               { text: "Architecture", link: "/guide/architecture" },
+              { text: "Releasing", link: "/guide/releasing" },
             ],
           },
         ],
@@ -41,6 +42,7 @@ export default defineConfig({
             items: [
               { text: "はじめる", link: "/ja/guide/getting-started" },
               { text: "アーキテクチャ", link: "/ja/guide/architecture" },
+              { text: "リリース", link: "/ja/guide/releasing" },
             ],
           },
         ],

@@ -19,6 +19,17 @@ cargo check --manifest-path src-tauri/Cargo.toml
 
 On Windows, run Cargo from a shell where the Visual Studio C++ tools are available.
 
+## Release Builds
+
+Release artifacts are built in GitHub Actions for Windows, Linux, and macOS. To publish a release:
+
+```powershell
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+Use `workflow_dispatch` on the `Release Builds` workflow when you only need downloadable CI artifacts without creating a GitHub Release.
+
 ## Guidelines
 
 - Keep pull requests focused.

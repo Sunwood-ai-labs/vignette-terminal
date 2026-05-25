@@ -55,6 +55,21 @@ src-tauri/target/release/
 src-tauri/target/release/bundle/
 ```
 
+## 📦 Releases
+
+Release builds are produced by GitHub Actions for Windows, Linux, and macOS. Push a version tag to create a GitHub Release and attach platform bundles:
+
+```powershell
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+The release workflow uploads:
+
+- Windows: `.exe` NSIS installer and `.msi`
+- Linux: `.AppImage`, `.deb`, and `.rpm`
+- macOS: `.dmg` and app bundle archive when produced by Tauri
+
 ## 🎬 Background Media
 
 The default background clips live in:
