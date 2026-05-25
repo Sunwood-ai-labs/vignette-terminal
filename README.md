@@ -25,6 +25,8 @@
 
 ## 📸 Preview
 
+![Vignette Terminal screenshot](docs/public/screenshot.png)
+
 Vignette Terminal is designed for people who want a command prompt that feels like a focused workspace, not a blank rectangle. It keeps the terminal readable while giving the background enough presence to feel alive.
 
 ## 🚀 Quick Start

@@ -24,3 +24,7 @@ features:
   - title: フレームレスUI
     details: 独自の上部バーと小さな操作ボタンで、余計なウィンドウ装飾を抑えます。
 ---
+
+## プレビュー
+
+![Vignette Terminal screenshot](/screenshot.png)

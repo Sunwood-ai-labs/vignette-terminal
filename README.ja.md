@@ -25,6 +25,8 @@
 
 ## 📸 プレビュー
 
+![Vignette Terminal screenshot](docs/public/screenshot.png)
+
 Vignette Terminal は、ただの黒い矩形ではなく、集中できる映像空間として使えるコマンドプロンプトを目指しています。文字の読みやすさを残しつつ、背景動画の存在感も楽しめます。
 
 ## 🚀 クイックスタート

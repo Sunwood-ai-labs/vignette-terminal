@@ -24,3 +24,7 @@ features:
   - title: Frameless UI
     details: Keeps the chrome quiet with a custom title strip and compact controls.
 ---
+
+## Preview
+
+![Vignette Terminal screenshot](/screenshot.png)
