@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="src/assets/brand/vignette-terminal-icon.png" alt="Vignette Terminal icon" width="128" />
+  <img src="src/assets/brand/vignette-terminal-icon.png" alt="Vignette Terminal icon" width="220" />
   <h1>Vignette Terminal</h1>
   <p><strong>動画背景をランダム再生できる、Tauri 製のシネマティックなターミナルアプリ。</strong></p>
 

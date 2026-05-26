@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="src/assets/brand/vignette-terminal-icon.png" alt="Vignette Terminal icon" width="128" />
+  <img src="src/assets/brand/vignette-terminal-icon.png" alt="Vignette Terminal icon" width="220" />
   <h1>Vignette Terminal</h1>
   <p><strong>A Tauri terminal with cinematic video backgrounds, random playback, and smooth crossfades.</strong></p>
 
