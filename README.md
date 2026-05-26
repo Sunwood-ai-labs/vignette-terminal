@@ -70,6 +70,8 @@ The release workflow uploads:
 - Linux: `.AppImage`, `.deb`, and `.rpm`
 - macOS: `.dmg` and app bundle archive when produced by Tauri
 
+See the [v0.1.0 release notes](https://sunwood-ai-labs.github.io/vignette-terminal/guide/releases/v0.1.0) and [walkthrough article](https://sunwood-ai-labs.github.io/vignette-terminal/guide/articles/v0.1.0) for the first public release.
+
 ## 🎬 Background Media
 
 The default background clips live in:

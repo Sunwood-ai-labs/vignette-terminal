@@ -70,6 +70,8 @@ git push origin v0.1.0
 - Linux: `.AppImage`、`.deb`、`.rpm`
 - macOS: `.dmg` と、Tauri が生成する場合は app bundle archive
 
+最初の公開版については、[v0.1.0 リリースノート](https://sunwood-ai-labs.github.io/vignette-terminal/ja/guide/releases/v0.1.0) と [紹介記事](https://sunwood-ai-labs.github.io/vignette-terminal/ja/guide/articles/v0.1.0) を参照してください。
+
 ## 🎬 背景メディア
 
 既定の背景動画は以下にあります。
