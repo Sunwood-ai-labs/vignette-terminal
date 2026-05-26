@@ -1,6 +1,7 @@
 :root {
   --backdrop-dim: 0.22;
   --backdrop-blur: 0px;
+  --media-crossfade-duration: 1600ms;
   color-scheme: dark;
 }
 
@@ -66,7 +67,7 @@ input {
 
 .media-video {
   opacity: 0;
-  transition: opacity 1200ms ease;
+  transition: opacity var(--media-crossfade-duration) ease;
 }
 
 .media-video.is-active {

@@ -36,6 +36,8 @@ let fadeTimer = null;
 let recoveryTimer = null;
 let mediaFailureCount = 0;
 const maxMediaFailureCount = 6;
+const crossfadeDurationMs = 1600;
+const crossfadeLeadSeconds = 2.2;
 
 const terminal = new Terminal({
   allowTransparency: true,
@@ -150,7 +152,7 @@ function createBackgroundVideo(filePath, isActive = false) {
   });
   video.addEventListener("timeupdate", () => {
     if (video !== activeVideo || fadeTimer || standbyVideo) return;
-    if (Number.isFinite(video.duration) && video.duration > 0 && video.duration - video.currentTime < 1.25) {
+    if (Number.isFinite(video.duration) && video.duration > 0 && video.duration - video.currentTime < crossfadeLeadSeconds) {
       queueNextRandomVideo();
     }
   });
@@ -183,7 +185,7 @@ function queueNextRandomVideo() {
       activeVideo = nextVideo;
       standbyVideo = null;
       fadeTimer = null;
-    }, 1200);
+    }, crossfadeDurationMs);
   };
 
   nextVideo.addEventListener("canplay", startFade, { once: true });
